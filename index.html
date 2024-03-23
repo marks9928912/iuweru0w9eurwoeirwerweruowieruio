@@ -1,0 +1,1924 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&display=swap" rel="stylesheet">
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    
+    /* Menu de cima */
+    
+    .menu {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 80px; /* Ajuste a altura desejada */
+      background: linear-gradient(180deg, #fff, #d9d9d9);
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      box-sizing: border-box;
+      z-index: 6666; /* Para garantir que o menu fique acima de outros elementos */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    }
+    
+    .menu::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, #fff, #d9d9d9);
+      z-index: -1;
+    }
+    
+    .menu a {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: #fff;
+    }
+    
+    .menu a:hover {
+      background: linear-gradient(180deg, #fff, #d9d9d9);
+    }
+    
+    .menu a img {
+      max-width: 100%; /* Ajuste o tamanho máximo da imagem */
+      max-height: 100%; /* Ajuste o tamanho máximo da imagem */
+      display: block;
+    }
+
+    .menu a:nth-child(1) img {
+      max-width: 100%; /* Ajuste o tamanho da imagem do botão 1 */
+    }
+
+    .buttons-container {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+    }
+
+    .valor-box {
+      width: 150px;
+      height: 20px;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      padding: 10px;
+      align-items: center;
+      line-height: 20px;
+      display: block;
+      margin: 0 auto;
+    }
+    
+    .valor-box-saque {
+      width: 90%;
+      height: 100px;
+      background-color: #ccc;
+      border-radius: 12px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+      padding: 10px;
+      align-items: center;
+      line-height: 20px;
+      display: block;
+      margin: 0 auto;
+      background-image: linear-gradient(125deg, #dedede, #ccc);
+    }
+
+    .valor-box span {
+      font-weight: bold;
+      font-size: 17px;
+    }
+    
+    #valor {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      font-size: 21px;
+    }
+    
+    #valor-saque {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: bold;
+      font-size: 21px;
+    }
+
+    /* Menu de baixo */
+
+    .menuemb {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #d9d9d9;
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+      box-sizing: border-box;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    }
+    
+    .menuemb a {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: #fff;
+      height: 50px;
+    }
+    
+    .menuemb a:hover {
+      background-color: #d9d9d9;
+    }
+
+    .menuemb a img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+
+
+    /* BOTÕES LIKE E DISLIKE*/
+    .like-dislike-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 0px;
+    }
+
+    .like-button, .dislike-button {
+      border: 2px solid;
+      padding: 10px;
+      cursor: pointer;
+      transition: background-color 0.2s, color 0.2s;
+      text-align: center; /* Centraliza o texto */
+      margin: 0 auto;
+      right: 5%;
+      left: 5%;
+    }
+
+    .like-button {
+      border-color: green;
+      color: green;
+      width: 49%;
+      right: 5%;
+      left: 5%;
+      border-radius: 8px;
+    }
+
+    .dislike-button {
+      border-color: red;
+      color: red;
+      width: 49%;
+      right: 5%;
+      left: 5%;
+      border-radius: 8px;
+    }
+
+    .liked {
+      background: linear-gradient(180deg, green, green);
+      color: #fff;
+    }
+    
+    .disliked {
+      background: linear-gradient(180deg, red, red);
+      color: #fff;
+    }
+
+    
+
+    .button-container {
+      display: flex;
+      margin: 0 auto;
+      width: 90%;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .square-button {
+      border-radius: 12px;
+      border: none;
+      aspect-ratio: 1 / 1;
+      margin: 5px;
+      background-color: #ccc;
+      color: #ccc;
+      cursor: pointer;
+      transition: transform 0.2s, background-color 0.2s;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .square-button img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Redimensiona a imagem para preencher o botão */
+    }
+
+    .square-button.active {
+      background-color: #007bff;
+      transform: scale(1.2);
+    }
+
+    .input-container {
+      width: 100%;
+      box-sizing: border-box;
+      display: flex;
+      margin: 0 auto;
+    }
+
+    .input-container input[type="text"] {
+      width: 100%;
+      font-size: 15px;
+      color: #303030;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* POPUP SAQUE */
+
+    .popup-container {
+      position: fixed;
+      border-radius: 20px;
+      top: 50%;
+      left: 50%;
+      width: 90%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 100px rgba(0, 0, 0, 10);
+      display: none;
+      z-index: 10000;
+    }
+
+    .popup-text {
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 10px;
+      display: block;
+      text-align: center;
+    }
+
+    .popup-button {
+      background-color: #FF0000;
+      width: 95%;
+      border-radius: 8px;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 14px;
+      cursor: pointer;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .desbloquear-button {
+      background-color: #007bff;
+      width: 95%;
+      border-radius: 8px;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 14px;
+      cursor: pointer;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* POPUP LIMITE DE SAQUE */
+
+    .popup-containerL {
+      position: fixed;
+      border-radius: 20px;
+      top: 50%;
+      left: 50%;
+      width: 90%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 20px;
+      box-shadow: 0 0 100px rgba(0, 0, 0, 10);
+      display: none;
+      z-index: 9999;
+    }
+
+    .popup-textL {
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 10px;
+      display: block;
+      text-align: center;
+    }
+
+    .popup-buttonL {
+      background-color: #FF0000;
+      width: 95%;
+      border-radius: 8px;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 14px;
+      cursor: pointer;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .desbloquear-buttonL {
+      background-color: #007bff;
+      width: 95%;
+      border-radius: 8px;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 14px;
+      cursor: pointer;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Style dos ícones do Google */
+
+    .material-symbols-outlined {
+      font-variation-settings:
+      'FILL' 1,
+      'wght' 600,
+      'GRAD' 0,
+      'opsz' 30;
+    }
+    
+    /* Barra de carregamento */
+    
+    #progress-bar {
+        width: 95%;
+        height: 20px;
+        background-color: #ddd;
+        position: relative;
+        border-radius: 8px;
+        overflow: hidden;
+        margin: 0 auto;
+    }
+        
+    #progress-bar div {
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: #ff0000;
+        animation: progress 86400s linear; /* ajustar segundos */
+        animation-fill-mode: forwards;
+        animation-iteration-count: 1;
+    }
+        
+    @keyframes progress {
+        from { width: 0%; }
+        to { width: 100%; }
+    }
+    
+    
+    /* Caixa de login */
+    
+    .loginbox {
+      width: 90%; /* Largura do retângulo */
+      height: 270px; /* Altura do retângulo */
+      background-color: #d9d9d9; /* Cor de fundo do retângulo */
+      border-radius: 20px; /* Raio dos cantos do retângulo */
+      display: block;
+      margin: 0 auto;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    }
+    
+    .input-container {
+      width: 100%;
+      max-width: 400px;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    .input-container label {
+
+      display: block;
+      font-size: 17px;
+      font-weight: bold;
+      color: #007bff;
+      margin-bottom: 10px; /* Espaçamento entre o título e a caixa */
+    }
+
+    .input-container input[type="text"] {
+      width: 96%;
+      font-size: 15px;
+      color: #007bff;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    /* Estilo para a bolinha girando */
+    .loading-spinner {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 4px solid rgba(0, 0, 0, 0.3);
+      border-top: 4px solid #007bff;
+      border-radius: 50%;
+      animation: spin 1.5s linear infinite;
+      vertical-align: middle;
+    }
+    
+    .prosseguir-button {
+      background-image: linear-gradient(125deg, #007bff, #007bff);
+      width: 90%;
+      border-radius: 12px;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      display: block;
+      font-weight: bold;
+      margin: 0 auto;
+    }
+
+    
+    .prosseguir-button1 {
+      background-color: #00C45A;
+      width: 90%;
+      border-radius: 8px;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      font-size: 14px;
+      cursor: pointer;
+      display: block;
+      margin: 0 auto;
+    }
+    
+    
+    /* Sinal do mines */
+    table {
+      height: 50%;
+      width: 50%;
+      border-spacing: 0;
+      display: block;
+      margin: 0 auto;
+    }
+    
+    table td {
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      border-spacing: 0; /* Remova o espaçamento entre células */
+      background-color: #fff;
+      text-align: center; /* Centraliza horizontalmente */
+      vertical-align: middle; /* Centraliza verticalmente */
+    }
+    
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      display: block;
+      margin: auto;
+    }
+    
+     /* iframe casa de aposta */
+    
+    .preview-container {
+        position: relative;
+        padding-bottom: 150%; /* 16:9 aspect ratio */
+        height: 0;
+        overflow: hidden;
+        margin: 20px auto;
+        width: 90%;
+        max-width: 800px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        border-radius: 5px;
+    }
+    
+    .preview-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+     /* sinal do mines */
+
+    .card-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      width: 100%;
+      width: 97%;
+      margin: 0 auto;
+    }
+
+    .card {
+      width: 100%;
+      background-color: #202020;
+      color: #ffffff;
+      padding: 5px;
+      margin: 4px;
+      border-radius: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+      max-width: 100%;
+      text-align: center;
+    }
+
+    .card-title {
+      font-size: 21px;
+      font-weight: bold;
+      color: #ffffff;
+    }
+
+    .card .card-title {
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
+
+    .card-content {
+    }
+
+    .output-value {
+      font-size: 35px;
+      font-weight: bold;
+      margin-top: 10px;
+      color: #ffffff;
+    }
+
+    #timer {
+      font-size: 35px;
+      font-weight: bold;
+      margin-top: 10px;
+      color: #ffffff;
+    }
+    
+    
+    .menu-image {
+      width: 75%; /* Para ajustar a largura da imagem ao link */
+      padding-top: 75%; /* Proporção de largura para altura (exemplo: 3:4) */
+      background-size: cover; /* Redimensiona a imagem para cobrir todo o elemento */
+      background-position: center; /* Centraliza a imagem */
+    }
+    
+    .criar-conta {
+      background-color: #d9d9d9;
+      width: 90%;
+      border-radius: 8px;
+      color: #4a4a4a;
+      border: none;
+      padding: 10px 20px;
+      font-size: 14px;
+      cursor: pointer;
+      display: block;
+      margin: 0 auto;
+    }
+
+    /* Notificação de dinheiro */
+
+    .notificacaoDinheiro {
+        display: none;
+        margin: 0 auto;
+        position: fixed;
+        top: -100px; /* Posiciona a notificação acima da tela */
+        left: 0;
+        right: 0;
+        color: #333;
+        text-align: center;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+        background-image: linear-gradient(125deg, #5575FD, #2B50F0);
+        z-index: 9999;
+        height: 25px;
+        width: 60%;
+        border-radius: 20px;
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+        
+    .notificacaoDinheiro.activeDinheiro {
+        display: block;
+        animation: slideInDinheiro 0.5s forwards;
+    }
+        
+    .notificacaoDinheiro.activeDinheiro.slideOutDinheiro {
+        animation: slideOutDinheiro 0.5s forwards;
+    }
+        
+    @keyframes slideInDinheiro {
+        from {
+            top: -100px;
+        }
+        to {
+            top: 0;
+        }
+    }
+        
+    @keyframes slideOutDinheiro {
+        from {
+            top: 0;
+        }
+        to {
+            top: -100px;
+        }
+    }
+    
+    /* Slogan inicio */
+    
+    .slogan-inicio {
+        display: flex;
+        margin: 0 auto;
+        justify-content: center; 
+        align-items: center;
+        background-color: #7a7a7a;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+        height: 50px;
+        width: 90%;
+        border-radius: 20px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    .form-label,
+    .form-input {
+      border-radius: 12px;
+      width: 90%;
+      justify-content: center;
+      display: flex;
+      margin: 0 auto;
+      box-sizing: border-box; /* Adicionado para incluir borda e preenchimento nas dimensões */
+      text-align: center;
+      font-size: 16px;
+    }
+
+    .form-input {
+      border: 1px solid #202020;
+      height: 40px;
+      line-height: 40px;
+    }
+
+    .form-label {
+      height: 35px;
+      color: white;
+      font-family: 'Montserrat', sans-serif;
+      background-color: rgb(99, 99, 99);
+      line-height: 35px;
+      margin-bottom: 15px;
+    }
+
+    
+  </style>
+</head>
+<body>
+  
+  <!--------------------- Página de login" --------------------->
+  
+  
+  <div id="login" style="display: block;">
+
+    <div class="menu">
+      <a>
+        <img decoding="async" src="https://i.ibb.co/zfhSCHP/facelogo.png">
+      </a>
+      <a>
+          <span class="material-symbols-outlined" style="text-align: right; width: 120%; margin: 15px; font-size: 40px; color: black;">person</span>
+      </a>
+    </div>
+    <div style="margin-bottom: 80px;"></div>
+
+    <div style="margin-bottom: 120px;"></div>
+    
+    <div class="loginbox">
+
+      <div style="padding-bottom:10px;"></div>
+
+        <p class="popup-textL" style="text-align: center; color: #4a4a4a; font-weight: bold; font-size: 18px; padding-top: 20px;">Bem-vindo(a) ao aplicativo</p>
+        <p class="popup-textL" style="text-align: center; color: #4a4a4a; font-size: 15px;">Insira seu e-mail para prosseguir!</p>
+        
+        <div style="margin-bottom:20px;"></div>
+        
+        <input for="email" type="text" name="email" id="email" class="form-input" placeholder="E-mail utilizado na compra" oninput="validateEmail()">
+
+        <div style="margin-bottom:15px;"></div>
+
+        <button class="prosseguir-button" id="prosseguir-button" onclick="verificarCampos()" href="#">ENTRAR</button>
+            
+        <div style="margin-bottom: 10px;"></div>
+        
+        
+    </div>
+    
+    
+
+  </div>
+  
+  
+  
+  <!--------------------- Conteúdo do "Início" --------------------->
+
+  
+  
+  <div id="inicio" style="display: none;">
+    <div class="menu">
+      <a>
+        <img decoding="async" src="https://i.ibb.co/zfhSCHP/facelogo.png"> 
+      </a>
+      <div class="buttons-container" href="#" onclick="mostrarPagina('saque')">
+        <div class="valor-box">
+          <span id="valor" style="font-family: 'Montserrat', sans-serif;">R$ 0.00</span>
+        </div>
+      </div>
+    </div>
+    <div style="margin-bottom: 90px;"></div>
+
+
+    <div class="slogan-inicio" style="background-color: #0178f6;">
+        <span class="material-symbols-outlined" style="font-size: 35px; color: white;">info</span>
+        
+        <div>
+            <p style="float: left; padding-left: 15px; color: white; font-weight: bold; font-size: 17px; padding-top: 0px;">Aumente seu saldo avaliando<br>os anúncios abaixo!</p>
+            
+        </div>
+    </div>
+    
+    <div style="margin-bottom: 20px;"></div>
+    
+    
+    <!--------------------- Notificação de dinheiro --------------------->
+
+
+    <div class="notificacaoDinheiro" id="notificacaoDinheiro">
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <span style="color: white; padding-right: 5px;" class="material-symbols-outlined">add_circle</span>
+            <span style="color: white; padding-left: 5px; font-weight: bold; font-size: 20px; font-family: 'Montserrat', sans-serif;">R$ 68.13</span> 
+        </div>
+    </div>
+
+
+    <!--------------------- Primeiros 5 anuncios --------------------->
+    
+    <img src="https://i.ibb.co/zrx50qP/landrover.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="1">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+    
+    <img src="https://i.ibb.co/Kh6Ldfy/anuncio5.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="2">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+    
+    <img src="https://i.ibb.co/Mh9K5Tt/anuncio4.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="3">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+  
+    
+    <img src="https://i.ibb.co/jZzgNYC/anuncio3.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="4">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+  
+    
+    <img src="https://i.ibb.co/f0xzF6k/anuncio2.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="5">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+    
+    <!--------------------- + 5 anúncios --------------------->
+    
+    <img src="https://i.ibb.co/kQNNmrz/anuncio6.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="6">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/Sr1HkjH/anuncio10.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="7">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/xY8VfDm/anuncio9.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="8">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/C6NcFHt/anuncio8.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="9">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/jGVTPGT/anuncio7.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="10">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+    <!--------------------- + 5 anúncios --------------------->
+
+    <img src="https://i.ibb.co/xz12qXn/a11.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="11">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/hdszR9d/a12.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="12">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/vPDdxbm/a13.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="13">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/4JrSXPx/a14.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="14">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/Yc0qMbX/a15.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="15">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+    <!--------------------- + 5 anúncios --------------------->
+
+    <img src="https://i.ibb.co/6nYDFdW/a16.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="16">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/ys4Bz1x/a20.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="17">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/yqmJ97G/a19.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="18">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/bbtXVfg/a18.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="19">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/h1vL2LZ/a17.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="20">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+    <!--------------------- + 5 anúncios --------------------->
+
+    <img src="https://i.ibb.co/Kqk59bf/a21.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="21">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/G2nKKXJ/a25.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="22">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/JQs3Pwg/a24.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="23">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/82v5R2P/a23.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="24">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/C6N17WT/a22.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="25">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+    
+    
+    <!--------------------- + 5 anúncios #25+ --------------------->
+
+    <img src="https://i.ibb.co/sPx93sy/image.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="26">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/LpdqGT0/image.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="27">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/nzMdK8Z/image.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="28">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/SRHcB15/image.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="29">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/xs2BK6Y/image.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="30">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+    
+    
+    <!--------------------- + 5 anúncios --------------------->
+
+    <img src="https://i.ibb.co/LYQkkNQ/image.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="31">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/BT98B7y/image.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="32">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/hW2tj4G/image.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="33">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/RPsF7P4/image.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="34">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/R42h0jD/image.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="35">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+    
+    <!--------------------- + 5 anúncios --------------------->
+
+    <img src="https://i.ibb.co/BGB3S23/image.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="36">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/b16kb9C/image.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="37">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/Q8fczr6/image.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="38">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/9HRLDnt/image.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="39">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/mbZbY99/image.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="40">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+    
+    <!--------------------- + 5 anúncios --------------------->
+
+    <img src="https://i.ibb.co/gvpzrMC/image.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="41">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/NYSfNtd/image.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="42">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/wYzh9Gz/image.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="43">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/Hd51bSd/image.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="44">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/YNKw5HF/image.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="45">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+    
+    <!--------------------- + 5 anúncios --------------------->
+
+    <img src="https://i.ibb.co/hD3rLqH/image.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="46">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/3ssHYLY/image.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="47">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/b5GvS4d/image.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="48">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/PrLBDmR/image.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="49">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/cDTQpvy/image.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="50">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+    
+    <!--------------------- + 5 anúncios --------------------->
+
+    <img src="https://i.ibb.co/n0n0F3R/image.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="51">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/zxTYH3q/image.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="52">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/X4nzky2/image.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="53">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/MfgzLQR/image.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="54">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/rt6pgpK/image.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="55">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+    
+    <!--------------------- + 5 anúncios --------------------->
+
+    <img src="https://i.ibb.co/pZqnjJz/image.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="56">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/4S2G27Z/image.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="57">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/3v5nJKM/image.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="58">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/y50SScw/image.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="59">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+
+    <img src="https://i.ibb.co/5X00YLy/image.png" style="width:97%">
+    <div style="margin-bottom: 10px;"></div>
+    <div class="like-dislike-buttons" data-annuncio="60">
+      <button class="like-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/MgMr4bs/like.png"></button>
+      <button class="dislike-button" onclick="likeDislike(this)"><img style="width:30px;" src="https://i.ibb.co/kHcbMwz/dislike.png"></button>
+    </div>
+    <div style="margin-bottom: 20px;"></div>
+
+    <!--------------------- Limite atingido --------------------->
+    
+  
+    <div class="popup-containerL" id="popupL">
+      <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+      <lord-icon
+        src="https://cdn.lordicon.com/inrunzby.json"
+        trigger="loop"
+        delay="2000"
+        colors="primary:#ffc738,secondary:#000000"
+        style="width:125px;height:125px; display: flex; margin: 0 auto;">
+      </lord-icon>
+      
+      
+      <span class="popup-textL" style="font-size: 24px; font-weight: bold;">LIMITE DIÁRIO ATINGIDO!</span>
+
+      <div style="margin-bottom: 15px;"></div>
+      
+      <p class="popup-textL" style="margin-bottom: 10px; font-size: 18px; font-weight: bold;">Precisa sacar seu saldo de hoje?</p>
+      
+      
+      <button class="desbloquear-buttonL" style="font-weight: bold; background-color: 	#00C45A;" href="#" onclick="mostrarPagina('saque')">SAQUE AGORA</button>
+      
+      <div style="margin-bottom: 15px;"></div>
+      
+      <p class="popup-textL" style="margin-bottom: 0px;">Ou espere 24 horas,</p>
+      <p class="popup-textL">para continuar avaliando.</p>
+      
+      <div id="progress-bar">
+        <div></div>
+      </div>
+      
+      <div style="margin-bottom: 10px;"></div>
+      
+      <div class="popup-buttonL-container" style="display: none;">
+        <button class="popup-buttonL" style="color:white;" onclick="fecharPopupEAgendarReaparecimento()">Continuar avaliando</button>
+      </div>
+
+
+
+      
+    </div>  
+
+
+    
+    <!--------------------- Menu debaixo --------------------->
+
+    
+    <div style="margin-bottom: 80px;"></div>
+
+    
+    <div class="menuemb">
+      <!-- Chamando a função para mostrar "Início" -->
+      <a href="#" onclick="mostrarPagina('saque')" >
+        <div class="menu-image" style="background-image: url('https://i.ibb.co/TqmZrHS/24.png');"></div>
+      </a>
+       
+      <!-- Chamando a função para mostrar "Página 2" -->
+      <a href="#" onclick="mostrarPagina('inicio')">
+        <div class="menu-image" style="background-image: url('https://i.ibb.co/6DjBJx2/21.png');"></div>
+      </a>
+       
+      <!-- Chamando a função para mostrar "Saque" -->
+      <a href="#" onclick="mostrarPagina('bonus')">
+        <div class="menu-image" style="background-image: url('https://i.ibb.co/y0C9vGh/26.png');"></div>
+      </a>
+    </div>
+  </div>
+
+
+  
+  <!--------------------- Conteúdo do "Saque" --------------------->
+
+  
+  <div id="saque" style="display: none;">
+
+    <div class="menu">
+      <a>
+        <img decoding="async" src="https://i.ibb.co/zfhSCHP/facelogo.png" alt="Página 1">
+      </a> 
+      <a></a>
+    </div>
+    <div style="margin-bottom: 90px;"></div>
+
+    <div style="margin-bottom: 20px;"></div>
+      
+    
+    
+    <div class="valor-box-saque">
+        <p style="font-size: 18px;  text-align: center;">Disponível para saque</p>
+        <span id="valor-saque" style="font-size: 55px; justify-content: center;  font-family: 'Montserrat', sans-serif; letter-spacing: -2px;">R$ 0.00</span>
+    </div>
+    
+
+    <div style="margin-bottom: 20px;"></div>
+    
+    <div class="button-container">
+      
+      <button class="square-button" onclick="toggleButton(1)">
+        <img decoding="async" src="https://i.ibb.co/g9f4QHd/cpf.png" alt="Botão 1">
+      </button>
+      
+      <button class="square-button" onclick="toggleButton(2)">
+        <img decoding="async" src="https://i.ibb.co/KsJFQyC/telefone.png" alt="Botão 2">
+      </button>
+      
+      <button class="square-button" onclick="toggleButton(3)">
+        <img decoding="async" src="https://i.ibb.co/K9dwKrN/email.png" alt="Botão 3">
+      </button>
+      
+      <button class="square-button" onclick="toggleButton(4)">
+        <img decoding="async" src="https://i.ibb.co/kch6Z8N/qr.png" alt="Botão 4">
+      </button>
+
+    </div>
+
+    <div style="margin-bottom: 15px;"></div>
+    
+    
+
+    
+    <!--------------------- MENU EMBAIXO --------------------->
+
+    
+    <div class="menuemb">
+      <a href="#" onclick="mostrarPagina('saque')" >
+        <div class="menu-image" style="background-image: url('https://i.ibb.co/HKbqqbg/23.png');"></div>
+      </a>
+       
+      <a href="#" onclick="mostrarPagina('inicio')">
+        <div class="menu-image" style="background-image: url('https://i.ibb.co/hRFqk87/22.png');"></div>
+      </a>
+       
+      <a href="#" onclick="mostrarPagina('bonus')">
+        <div class="menu-image" style="background-image: url('https://i.ibb.co/y0C9vGh/26.png');"></div>
+      </a>
+    </div>
+
+    
+
+      <input type="text" name="chave-pix" id="chave-pix" class="form-input" placeholder="Digite sua chave PIX aqui">
+
+      <div style="margin-bottom: 20px;"></div>
+
+      <input type="text" name="quantia" id="quantia" class="form-input" placeholder="Digite o valor que deseja sacar" inputmode="numeric" oninput="formatarValor(this)">
+    
+
+    <div style="margin-bottom: 20px;"></div>
+    
+    <button class="prosseguir-button" onclick="showPopup()" style="font-weight: bold; font-size: 18x;">REALIZAR SAQUE ➔</button>
+  
+    <div class="popup-container" id="popup">
+        
+      <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
+      <lord-icon
+        src="https://cdn.lordicon.com/qmcsqnle.json"
+        trigger="loop"
+        delay="1000"
+        colors="primary:#ffc738,secondary:#b26836"
+        style="width:125px;height:125px; display: flex; margin: 0 auto;">
+      </lord-icon>
+      
+
+      <span class="popup-text" style="font-size: 20px; font-weight: bold;">DESBLOQUEAR SALDO!</span>
+      <div style="margin-bottom: 20px;"></div>
+      <p class="popup-text">Atenção, realize o pagamento da taxa para desbloquear o seu saldo pendente!</p>
+      <p class="popup-text">Taxa necessária para evitar fraudes e golpes, mas você receberá esse valor de volta a sua conta após o saque!</p>
+      <div style="margin-bottom: 20px;"></div>
+      <button class="desbloquear-button" style="font-weight: bold;" onclick="window.open('https://go.perfectpay.com.br/PPU38CO3LT9', '_blank')">DESBLOQUEAR SALDO ➔</button>
+      <div style="margin-bottom: 15px;"></div>
+      <button class="popup-button" onclick="closePopup()">X</button>
+    </div>
+
+    <div style="margin-bottom: 20px;"></div>
+
+    
+  </div>
+
+    
+    <!--------------------- Página bonus --------------------->
+
+
+  <div id="bonus" style="display: none;">
+      
+      
+      <!--------------------- Menu de cima --------------------->
+      
+      <div class="menu">
+      <a>
+        <p style="color: #5b5b5b; font-size: 45px; font-weight: bold; text-align: center; margin-bottom: 0px; font-family: 'Montserrat', sans-serif; padding-bottom: 35px;">Bônus</p>
+      </a>
+      <a>
+      </a>
+    </div>
+    
+    <div style="margin-bottom: 100px;"></div>
+     
+    
+    <div class="slogan-inicio" style="background-color: #202020;">
+        <span class="material-symbols-outlined" style="font-size: 35px; color: white;">paid</span>
+        
+        <div>
+            <p style="float: left; padding-left: 15px; color: white; font-weight: bold; font-size: 17px; padding-top: 0px;">Multiplique seus ganhos<br>com a ferramenta abaixo!</p>
+            
+        </div>
+    </div>
+    
+
+    <!----- SINAL DO MINES ---->
+    <div class="card-container" style="margin-top:5px;">
+        <div class="card">
+          <div class="card-title" style="color: #ffffff;">💣 Bombas</div>
+          <div class="card-content">
+            <span id="result" class="output-value">04</span>
+          </div>
+        </div>
+    
+        <div class="card">
+          <div class="card-title" style="color: #ffffff;">🛡️ Proteções</div>
+          <div class="card-content">
+            <span class="output-value">02</span>
+          </div>
+        </div>
+    </div>
+    <div style="margin-bottom: 20px;"></div>  
+    
+    
+      
+   
+    
+    <!--------------------- Menu debaixo --------------------->
+
+    
+    
+
+    
+    <div class="menuemb">
+      <a href="#" onclick="mostrarPagina('saque')" >
+        <div class="menu-image" style="background-image: url('https://i.ibb.co/TqmZrHS/24.png');"></div>
+      </a>
+       
+      <a href="#" onclick="mostrarPagina('inicio')">
+        <div class="menu-image" style="background-image: url('https://i.ibb.co/hRFqk87/22.png');"></div>
+      </a>
+       
+      <a href="#" onclick="mostrarPagina('bonus')">
+        <div class="menu-image" style="background-image: url('https://i.ibb.co/kH9pn7Q/25.png');"></div>
+      </a>
+    </div>
+    
+    
+  </div>
+  
+  
+    
+  
+  <!--------------------- Fim do body --------------------->
+  
+  <script>
+  
+    const inicioDiv = document.getElementById('inicio');
+    const saqueDiv = document.getElementById('saque');
+    const loginDiv = document.getElementById('login');
+    const bonusDiv = document.getElementById('bonus');
+
+    
+    // Função para definir um cookie
+    function setCookie(cname, cvalue, exdays) {
+        const d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        const expires = `expires=${d.toUTCString()}`;
+        document.cookie = `${cname}=${cvalue}; ${expires}; path=/`;
+    }
+    
+    // Função para obter o valor de um cookie
+    function getCookie(cname) {
+        const name = `${cname}=`;
+        const decodedCookie = decodeURIComponent(document.cookie);
+        const ca = decodedCookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+            let c = ca[i];
+            while (c.charAt(0) === ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) === 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return '';
+    }
+    
+    let valor = parseFloat(getCookie('valor')) || 0.0;
+    const valorSpan = document.getElementById('valor');
+    const valorSpanSaque = document.getElementById('valor-saque');
+    
+    function atualizarValor() {
+        valorSpan.textContent = `R$ ${valor.toFixed(2)}`;
+        valorSpanSaque.textContent = `R$ ${valor.toFixed(2)}`;
+        setCookie('valor', valor.toFixed(2), 365); // Armazena o valor como um cookie válido por 1 ano
+    }
+    
+    atualizarValor(); // Atualiza o valor inicial na caixa de valor
+    
+    // Função para aumentar o valor
+    function aumentarValor() {
+        const incremento = [68.13];
+        const indiceAleatorio = Math.floor(Math.random() * incremento.length);
+        const valorIncremento = incremento[indiceAleatorio];
+          
+        valor += valorIncremento;
+        atualizarValor();
+        verificarValor();
+    }
+    
+    
+    
+
+
+    function mostrarPagina(pagina) {
+      inicioDiv.style.display = pagina === 'inicio' ? 'block' : 'none';
+      saqueDiv.style.display = pagina === 'saque' ? 'block' : 'none';
+      loginDiv.style.display = pagina === 'login' ? 'block' : 'none';
+      bonusDiv.style.display = pagina === 'bonus' ? 'block' : 'none';
+    }
+
+    // Atualizar o valor exibido inicialmente
+    atualizarValor();
+    
+    // Funções botão like e dislike
+    const anuncios = {}; // Objeto para controlar o estado dos anúncios
+
+
+    // NOtificação de dinheiro
+    
+    function mostrarNotificacaoDinheiro() {
+          const notificacaoDinheiro = document.getElementById("notificacaoDinheiro");
+          notificacaoDinheiro.classList.add("activeDinheiro");
+    
+          setTimeout(() => {
+            notificacaoDinheiro.classList.add("slideOutDinheiro");
+          }, 1500);
+          
+          setTimeout(() => {
+            notificacaoDinheiro.classList.remove("activeDinheiro", "slideOutDinheiro");
+          }, 2000);
+    }
+
+
+    function likeDislike(button) {
+      const annuncioDiv = button.parentElement;
+      const annuncioId = annuncioDiv.getAttribute('data-annuncio');
+  
+      if (!anuncios[annuncioId]) {
+        anuncios[annuncioId] = {
+          liked: false,
+          disliked: false,
+        };
+      }
+  
+      const likeButton = annuncioDiv.querySelector('.like-button');
+      const dislikeButton = annuncioDiv.querySelector('.dislike-button');
+  
+      const estado = anuncios[annuncioId];
+  
+      if (!estado.liked && !estado.disliked) {
+        if (button === likeButton) {
+          likeButton.classList.add('liked');
+          estado.liked = true;
+          aumentarValor();
+          mostrarNotificacaoDinheiro();
+        } else if (button === dislikeButton) {
+          dislikeButton.classList.add('disliked');
+          estado.disliked = true;
+          aumentarValor();
+          mostrarNotificacaoDinheiro();
+        }
+      }
+    }
+
+
+    let activeButton = null;
+
+    function toggleButton(buttonNumber) {
+      const buttons = document.querySelectorAll('.square-button');
+  
+      if (activeButton !== null) {
+       buttons[activeButton - 1].classList.remove('active');
+      }
+  
+      if (activeButton === buttonNumber) {
+        activeButton = null;
+      } else {
+        buttons[buttonNumber - 1].classList.add('active');
+        activeButton = buttonNumber;
+      }
+    }
+
+    // Popup SAQUE
+    
+    function showPopup() {
+      document.getElementById('popup').style.display = 'block';
+    }
+
+    function closePopup() {
+      document.getElementById('popup').style.display = 'none';
+    }  
+
+    // Popup LIMITE DIÁRIO
+    
+    function showPopupL() {
+      document.getElementById('popupL').style.display = 'block';
+    }
+
+    function closePopupL() {
+      document.getElementById('popupL').style.display = 'none';
+    }  
+
+    
+    
+    // POPUP Limite diário quando bate X valor
+    function verificarValor() {
+        if (valor >= 1362 && valor < 1363) {
+            // Popup para valor >= 1362.60 e < 2725.20
+            showPopupL();
+        } else if (valor >= 2725 && valor < 2726) {
+            // Popup para valor >= 2725.20 e < 4087.8
+            showPopupL();
+        } else if (valor >= 4087) {
+            // Popup para valor >= 4087.8
+            showPopupL();
+        }
+    }
+    
+    
+    function fecharPopupEAgendarReaparecimento() {
+        var popupButtonContainer = document.querySelector(".popup-buttonL-container");
+        popupButtonContainer.style.display = "none"; // Oculta o botão
+    
+        // Define um temporizador para mostrar o botão após 10 segundos
+        setTimeout(function() {
+            popupButtonContainer.style.display = "block";
+        }, 86400000); // 24 horas
+    
+        // Aqui você também deve adicionar a função para fechar o popup
+        closePopupL();
+    }
+    
+    // Chama a função para mostrar o botão após 10 segundos (10000 milissegundos)
+    setTimeout(function() {
+        var botaoContainer = document.querySelector(".popup-buttonL-container");
+        botaoContainer.style.display = "block";
+    }, 86400000); // 24 horas
+
+
+    // Script botão login
+    function showLoading() {
+      var button = document.getElementById("prosseguir-button");
+      button.disabled = true; // Desabilitar o botão enquanto a animação ocorre
+
+      button.innerHTML = '<span class="loading-spinner"></span> Carregando...';
+
+      // Simulando um atraso de 3 segundos para a animação
+      setTimeout(function() {
+        // Redirecionar após o atraso
+        mostrarPagina('inicio');
+      }, 2000); // 2 segundos
+    }
+    
+
+    // Matriz do mines
+    function generateMatrix() {
+      var matrix = [];
+      var diamonds = 3;
+    
+      for (var i = 0; i < 5; i++) {
+        matrix[i] = [];
+        for (var j = 0; j < 5; j++) {
+          matrix[i][j] = Math.random() < 0.2 ? 'diamond' : 'red-circle';
+        }
+      }
+      return matrix;
+    }
+    
+    function updateMatrix() {
+      var matrix = generateMatrix();
+      var table = document.getElementById("matrix");
+      table.innerHTML = "";
+    
+      for (var i = 0; i < matrix.length; i++) {
+        var row = document.createElement("tr");
+    
+        for (var j = 0; j < matrix[i].length; j++) {
+          var cell = document.createElement("td");
+          var img = document.createElement("img");
+          img.src = matrix[i][j] === 'diamond' ? 'https://i.ibb.co/w7gjvZR/estrelanova.png' : 'https://i.ibb.co/r0ZkB2N/bolanova.png';
+          cell.appendChild(img);
+          row.appendChild(cell);
+        }
+    
+        table.appendChild(row);
+      }
+    }
+    
+    updateMatrix();
+    
+    setInterval(updateMatrix, 60000);
+
+
+    // Sinal do mines
+    
+    var timer = document.getElementById("timer");
+    var nextUpdate = getNextUpdateTime();
+
+    function getNextUpdateTime() {
+      var currentTime = new Date();
+      var minutes = currentTime.getMinutes();
+      var seconds = currentTime.getSeconds();
+      var nextSeconds = seconds + 59;
+      var nextMinutes = minutes;
+      if (nextSeconds >= 60) {
+        nextSeconds -= 60;
+        nextMinutes += 1;
+        if (nextMinutes >= 60) {
+          nextMinutes -= 60;
+        }
+      }
+      return new Date(currentTime.getFullYear(), currentTime.getMonth(), currentTime.getDate(), currentTime.getHours(), nextMinutes, nextSeconds);
+    }
+
+    function formatTime(time) {
+      var seconds = time.getSeconds().toString().padStart(2, "0");
+      return seconds;
+    }
+
+    function updateTimer() {
+      var currentTime = new Date();
+      if (currentTime >= nextUpdate) {
+        nextUpdate = getNextUpdateTime();
+
+        // Gerar novo número aleatório
+        var randomNumber = generateRandomNumber();
+
+        // Atualizar o localStorage com o novo número
+        localStorage.setItem("generatedNumber", randomNumber);
+
+        // Exibir o novo número aleatório
+        displayResult();
+      }
+      var timeLeft = nextUpdate - currentTime;
+      timer.textContent = formatTime(new Date(timeLeft));
+    }
+
+    setInterval(function() {
+      updateTimer();
+    }, 1000);
+    
+    
+    function formatarValor(input) {
+      // Remove todos os caracteres não numéricos
+      var valor = input.value.replace(/[^0-9]/g, '');
+      
+      // Divide o valor em parte inteira e decimal
+      var parteInteira = valor.slice(0, -2);
+      var centavos = valor.slice(-2);
+      
+      // Reconstroi o valor formatado
+      input.value = parteInteira + '.' + centavos;
+    }
+    
+    function verificarCampos() {
+        var email = document.getElementById("email").value;
+        var emailValido = /\S+@\S+\.\S+/;
+    
+        if (email === "") {
+            alert("Insira seu e-mail para logar!");
+        } else if (!emailValido.test(email)) {
+            alert("Insira um e-mail válido!");
+        } else {
+            // Se o campo estiver preenchido e for um e-mail válido, redireciona para a próxima página
+            showLoading();
+        }
+    }
+    
+    
+    
+  </script>
+</html>
